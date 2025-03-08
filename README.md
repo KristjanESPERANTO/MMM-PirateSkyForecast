@@ -4,7 +4,7 @@ This a module for <strong>MagicMirror</strong><br>
 https://magicmirror.builders/<br>
 https://github.com/MichMich/MagicMirror
 
-![Screenshot](MMM-PirateSkyForecast .png)
+![Screenshot](screenshot.png)
 
 This weather module that displays current, hourly and daily forecast information
 using data from the Pirate Sky API. This is a replacement module for MMM-DarkSkyWeather, now that the API for Dark Sky is gone and the wonderful module is no longer maintained.  MMM-PirateSkyForecast is my way of sharing a functional fork which uses the Pirate Sky API.
