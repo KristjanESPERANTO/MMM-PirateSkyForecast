@@ -19,54 +19,48 @@
 
 *********************************/
 
-var NodeHelper = require("node_helper");
-var request = require("request");
-var moment = require("moment");
+const Log = require("logger");
+const NodeHelper = require("node_helper");
+const moment = require("moment");
 
 module.exports = NodeHelper.create({
 
-  start: function() {
-    console.log("====================== Starting node_helper for module [" + this.name + "]");
+  start () {
+    Log.log(`Starting node_helper for module [${this.name}]`);
   },
 
-  socketNotificationReceived: function(notification, payload){
+  socketNotificationReceived (notification, payload) {
     if (notification === "DARK_SKY_FORECAST_GET") {
-
       var self = this;
-
-      if (payload.apikey == null || payload.apikey == "") {
-        console.log( "[MMM-PirateSkyForecast] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** No API key configured. Get an API key at https://pirateweather.net" );
-      } else if (payload.latitude == null || payload.latitude == "" || payload.longitude == null || payload.longitude == "") {
-        console.log( "[MMM-PirateSkyForecast] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Latitude and/or longitude not provided." );
+      if (payload.apikey === null || payload.apikey === "") {
+        Log.log(`[MMM-PirateSkyForecast] ${moment().format("D-MMM-YY HH:mm")} ** ERROR ** No API key configured. Get an API key at https://pirateweather.net`);
+      } else if (payload.latitude === null || payload.latitude === "" || payload.longitude === null || payload.longitude == "") {
+        Log.log(`[MMM-PirateSkyForecast] ${moment().format("D-MMM-YY HH:mm")} ** ERROR ** Latitude and/or longitude not provided.`);
       } else {
-
-        //make request to Pirate Sky API
-        var url = "https://api.pirateweather.net/forecast/" +
-          payload.apikey + "/" +
-          payload.latitude + "," + payload.longitude +
-          "?units=" + payload.units +
-          "&lang=" + payload.language;
-          // "&exclude=minutely"
-
-        // console.log("[MMM-PirateSkyForecast] Getting data: " + url);
-        request({url: url, method: "GET"}, function( error, response, body) {
-
-          if(!error && response.statusCode == 200) {
-
-            //Good response
-            var resp = JSON.parse(body);
-            resp.instanceId = payload.instanceId;
-            self.sendSocketNotification("DARK_SKY_FORECAST_DATA", resp);
-
-          } else {
-            console.log( "[MMM-PirateSkyForecast] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** " + error );
-          }
-
-        });
-
+        requestData();
       }
     }
-  },
 
-
+    async function requestData () {
+      // make request to Pirate Sky API
+      const url = `https://api.pirateweather.net/forecast/${
+        payload.apikey}/${
+        payload.latitude},${payload.longitude
+      }?units=${payload.units
+      }&lang=${payload.language}`;
+      // "&exclude=minutely"
+      Log.debug(`[MMM-PirateSkyForecast] Getting data: ${url}`);
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const resp = await response.json();
+        resp.instanceId = payload.instanceId;
+        self.sendSocketNotification("DARK_SKY_FORECAST_DATA", resp);
+      } catch (error) {
+        Log.error(`[MMM-PirateSkyForecast] ${moment().format("D-MMM-YY HH:mm")} ** ERROR ** ${error}`);
+      }
+    }
+  }
 });
