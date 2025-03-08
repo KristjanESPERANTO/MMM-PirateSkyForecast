@@ -1,12 +1,12 @@
 {
-  "name": "mmm-darkskyforecast",
+  "name": "mmm-pirateskyforecast",
   "version": "1.0.0",
-  "description": "Magic Mirror module that gets weather forecast data from Dark Sky",
+  "description": "MagicMirror² module that gets weather forecast data from Pirate Sky.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jclarke0000/MMM-DarkSkyForecast"
+    "url": "git+https://github.com/b-reich/MMM-PirateSkyForecast.git"
   },
-  "main": "MMM-DarkSkyForecast.js",
+  "main": "MMM-PirateSkyForecast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

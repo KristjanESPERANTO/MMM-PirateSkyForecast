@@ -1,10 +1,10 @@
-# MMM-DarkSkyForecast
+# MMM-PirateSkyForecast 
 
 This a module for <strong>MagicMirror</strong><br>
 https://magicmirror.builders/<br>
 https://github.com/MichMich/MagicMirror
 
-![Screenshot](/../screenshots/MMM-DarkSkyForecast.png?raw=true "Screenshot")
+![Screenshot](MMM-PirateSkyForecast .png)
 
 This weather module that displays current, hourly and daily forecast information
 using data from the Pirate Sky API. This is a replacement module for MMM-DarkSkyWeather, now that the API for Dark Sky is gone and the wonderful module is no longer maintained.  MMM-PirateSkyForecast is my way of sharing a functional fork which uses the Pirate Sky API.
@@ -28,7 +28,7 @@ At a minimum you need to supply the following required configuration parameters:
 * `latitude`
 * `longitude`
 
-You can request an API key to access Dark Sky data here:
+You can request an API key to access Pirate Sky data here:
 `https://pirateweather.net/`.
 
 Free tier is fine -- this module will not make any where near 10000 request on one day.
@@ -48,7 +48,7 @@ Find out your latitude and longitude here:
   <tbody>
     <tr>
       <td><code>updateInterval</code></td>
-      <td>How frequently, in minutes, to poll for data. Be careful not to set this too frequent so that you don't exceed Dark Sky's 1000 free requests per day cap.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>10</code></td>
+      <td>How frequently, in minutes, to poll for data. Be careful not to set this too frequent so that you don't exceed Pirate Sky's 1000 free requests per day cap.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>10</code></td>
     </tr>
     <tr>
       <td><code>requestDelay</code></td>
@@ -60,7 +60,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>language</code></td>
-      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>Defaults to the language set for Magic Mirror, but can be overridden with any of the language codes listed here: https://darksky.net/dev/docs#request-parameters.</td>
+      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>Defaults to the language set for Magic Mirror, but can be overridden with any of the language codes listed here: https://pirateweather.net/en/latest/API/#request-parameters.</td>
     </tr>
     <tr>
       <td><code>colored</code></td>
@@ -68,7 +68,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>units</code></td>
-      <td>One of the following: <code>si</code>, <code>ca</code>, <code>uk2</code>, or <code>us</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>ca</code><br />See https://darksky.net/dev/docs#request-parameters for details on units.</td>
+      <td>One of the following: <code>si</code>, <code>ca</code>, <code>uk2</code>, or <code>us</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>ca</code><br />See https://pirateweather.net/en/latest/API/#request-parameters for details on units.</td>
     </tr>
     <tr>
       <td><code>showCurrentConditions</code></td>
@@ -128,7 +128,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>useAnimatedIcons</code></td>
-      <td>Whether to use the Dark Sky's own animated icon set.  When set to true, this will override your choice for <code>iconset</code>. However, flat icons will still be used in some instances.  For example if you set the <code>animateMainIconOnly</code> parameter to true, daily and hourly forecasts will not be animated and instead will use your choice for <code>iconset</code>.  Inline icons (i.e. used to prefix precipitation and wind information) will always be flat.  A good <code>iconset</code> match for the animated set is <code>1c</code>.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
+      <td>Whether to use the Dark Sky's animated icon set.  When set to true, this will override your choice for <code>iconset</code>. However, flat icons will still be used in some instances.  For example if you set the <code>animateMainIconOnly</code> parameter to true, daily and hourly forecasts will not be animated and instead will use your choice for <code>iconset</code>.  Inline icons (i.e. used to prefix precipitation and wind information) will always be flat.  A good <code>iconset</code> match for the animated set is <code>1c</code>.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
     </tr>
     <tr>
       <td><code>animateMainIconOnly</code></td>
@@ -173,9 +173,9 @@ Find out your latitude and longitude here:
 
 ## Sample Configuration
 
-```
+```js
 {
-  module: "MMM-DarkSkyForecast",
+  module: "MMM-PirateSkyForecast",
   header: "Weather",
   position: "top_right",
   classes: "default everyone",
@@ -211,12 +211,12 @@ This module is set to be 300px wide by default.  If you wish to override it, you
 }
 ```
 
-Most important elements of this module have one or more class names applied. Examine the `MMM-DarkSkyForecast.css` or inspect elements directly with your browser of choice to determine what class you would like to override.
+Most important elements of this module have one or more class names applied. Examine the `MMM-PirateSkyForecast .css` or inspect elements directly with your browser of choice to determine what class you would like to override.
 
 
 ## For Module Developers
 
-This module broadcasts a notification when it recieves a weather update.  The notification is `DARK_SKY_FORECAST_WEATHER_UPDATE` and the payload contains Dark Sky's JSON weather forecast object.  For details on the weather object, see https://darksky.net/dev/docs.
+This module broadcasts a notification when it recieves a weather update.  The notification is `DARK_SKY_FORECAST_WEATHER_UPDATE` and the payload contains Pirate Sky's JSON weather forecast object.  For details on the weather object, see <https://pirateweather.net/en/latest/API/>.
 
 
 ## Attributions
