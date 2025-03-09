@@ -1,24 +1,20 @@
-# MMM-PirateSkyForecast 
+# MMM-PirateSkyForecast
 
-This a module for <strong>MagicMirror</strong><br>
-https://magicmirror.builders/<br>
-https://github.com/MichMich/MagicMirror
+This is a weather module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror).
+
+It displays current weather conditions, as well as a forecast for the next few hours and days.  It uses the Pirate Sky API to retrieve weather data.
+
+This module is a fork of the [MMM-DarkSkyWeather](https://github.com/jclarke0000/MMM-DarkSkyForecast) module, which is no longer maintained since the Dark Sky API is no longer available.
+
+## Screenshot
 
 ![Screenshot](screenshot.png)
 
-This weather module that displays current, hourly and daily forecast information
-using data from the Pirate Sky API. This is a replacement module for MMM-DarkSkyWeather, now that the API for Dark Sky is gone and the wonderful module is no longer maintained.  MMM-PirateSkyForecast is my way of sharing a functional fork which uses the Pirate Sky API.
-
-**NOTE:** This module uses the Nunjucks templating system introduced in version 2.2.0 of MagicMirror.  If you're seeing nothing on your display where you expect this module to appear, make sure your MagicMirror version is at least 2.2.0.
-
-
 ## Installation
 
-1. Navigate into your MagicMirror `modules` folder and execute<br>
-`git clone git clone https://github.com/dankerthrone/MMM-PirateSkyForecast`.
+1. Navigate into your MagicMirror `modules` folder and execute
+  `git clone git clone https://github.com/b-reich/MMM-PirateSkyForecast`.
 2. Enter the new `MMM-PirateSkyForecast` directory and execute `npm install`.
-
-
 
 ## Configuration
 
@@ -60,7 +56,7 @@ Find out your latitude and longitude here:
     </tr>
     <tr>
       <td><code>language</code></td>
-      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>Defaults to the language set for Magic Mirror, but can be overridden with any of the language codes listed here: https://pirateweather.net/en/latest/API/#request-parameters.</td>
+      <td>The language to be used for display.<br><br><strong>Type</strong> <code>String</code><br>Defaults to the language set for MagicMirror, but can be overridden with any of the language codes listed here: https://pirateweather.net/en/latest/API/#request-parameters.</td>
     </tr>
     <tr>
       <td><code>colored</code></td>
@@ -166,46 +162,42 @@ Find out your latitude and longitude here:
       <td><code>label_ordinals</code></td>
       <td>How you would like wind direction to be displayed.  Assumes index <code>0</code> is North and proceeds clockwise.<br><br><strong>Type</strong> <code>Array of Strings</code><br>Defaults to <code>["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]</code></td>
     </tr>
-
-
   </tbody>
 </table>
 
 ## Sample Configuration
 
 ```js
-{
-  module: "MMM-PirateSkyForecast",
-  header: "Weather",
-  position: "top_right",
-  classes: "default everyone",
-  disabled: false,
-  config: {
-    apikey: "SUPER SECRET!!!",
-    latitude: "51.506130",
-    longitude: "-0.090270",      
-    iconset: "4c",
-    concise: false,
-    forecastLayout: "table"
-  }
-},
+    {
+      module: "MMM-PirateSkyForecast",
+      header: "Weather",
+      position: "top_right",
+      classes: "default everyone",
+      disabled: false,
+      config: {
+        apikey: "SUPER SECRET!!!",
+        latitude: "51.506130",
+        longitude: "-0.090270",      
+        iconset: "4c",
+        concise: false,
+        forecastLayout: "table"
+      }
+    },
 ```
 
 ## Icon Sets
 
 ![Icon Sets](icons/iconsets.png?raw=true "Icon Sets")
 
-
 ## Layouts
 
 ![Layouts](/../screenshots/forecast-layouts.png?raw=true "Layouts")
-
 
 ## Styling
 
 This module is set to be 300px wide by default.  If you wish to override it, you can add the following to your `custom.css` file:
 
-```
+```css
 .MMM-PirateWeatherForecast .module-content {
   width: 500px; /* adjust this to taste */
 }
@@ -213,39 +205,36 @@ This module is set to be 300px wide by default.  If you wish to override it, you
 
 Most important elements of this module have one or more class names applied. Examine the `MMM-PirateSkyForecast .css` or inspect elements directly with your browser of choice to determine what class you would like to override.
 
-
 ## For Module Developers
 
 This module broadcasts a notification when it recieves a weather update.  The notification is `DARK_SKY_FORECAST_WEATHER_UPDATE` and the payload contains Pirate Sky's JSON weather forecast object.  For details on the weather object, see <https://pirateweather.net/en/latest/API/>.
 
-
 ## Attributions
 
 **Skycons - Animated icon set by Dark Sky**<br />
-http://darkskyapp.github.io/skycons/<br />
+<http://darkskyapp.github.io/skycons/><br />
 (using the fork created by Maxime Warner
 that allows individual details of the icons
 to be coloured<br />
-https://github.com/maxdow/skycons)
+<https://github.com/maxdow/skycons>)
 
 **Climacons by Adam Whitcroft**<br />
-http://adamwhitcroft.com/climacons/
+<http://adamwhitcroft.com/climacons/>
 
 **Free Weather Icons by Svilen Petrov**<br />
-https://www.behance.net/gallery/12410195/Free-Weather-Icons
+<https://www.behance.net/gallery/12410195/Free-Weather-Icons>
 
 **Weather Icons by Thom**<br />
 (Designed for DuckDuckGo)<br />
-https://dribbble.com/shots/1832162-Weather-Icons
+<https://dribbble.com/shots/1832162-Weather-Icons>
 
 Sets 4 and 5 were found on Graphberry, but I couldn't find
 the original artists.<br />
-https://www.graphberry.com/item/weather-icons<br />
-https://www.graphberry.com/item/weathera-weather-forecast-icons
+<https://www.graphberry.com/item/weather-icons><br />
+<https://www.graphberry.com/item/weathera-weather-forecast-icons>
 
 Some of the icons were modified to better work with the module's
 structure and aesthetic.
 
 **Weather data provided by PirateWeather**<br />
-https://pirateweather.net/
-
+<https://pirateweather.net/>

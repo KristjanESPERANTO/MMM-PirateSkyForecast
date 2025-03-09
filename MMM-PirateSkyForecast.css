@@ -127,7 +127,6 @@
   border-bottom: solid 1px #222;
 }
 
-
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container * {
   text-align: center;
 }
@@ -156,7 +155,6 @@
   text-transform: uppercase;
 }
 
-
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .wind-speed,
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .wind-gusts {
   display: inline-block;
@@ -167,13 +165,11 @@
   display: block;
 }
 
-
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .temperature,
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .temperature-container {
   font-size: 22px;
   padding: 4px 0;
 }
-
 
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .precipitation-container,
 .MMM-PirateSkyForecast .wrapper.tiled .forecast-container .forecast-item .wind-container {
@@ -217,8 +213,6 @@
   height: 40px;
 }
 
-
-
 .MMM-PirateSkyForecast .wrapper.table .forecast-container .header-row > span {
   height: 32px;
   font-size: 14px;
@@ -226,7 +220,6 @@
   vertical-align: bottom;
   padding-bottom: 2px;
 }
-
 
 .MMM-PirateSkyForecast .wrapper.table .forecast-container .forecast-item > span:first-child {
   text-align: left;
@@ -244,7 +237,7 @@
 
 .MMM-PirateSkyForecast .wrapper.table .forecast-container .forecast-item .time,
 .MMM-PirateSkyForecast .wrapper.table .forecast-container .forecast-item  .high-temperature,
-.MMM-PirateSkyForecast .wrapper.table .forecast-container .forecast-item .low-temperature, {
+.MMM-PirateSkyForecast .wrapper.table .forecast-container .forecast-item .low-temperature {
   white-space: nowrap;
 }
 
@@ -253,6 +246,3 @@
   display: block;
   white-space: nowrap;
 }
-
-
-

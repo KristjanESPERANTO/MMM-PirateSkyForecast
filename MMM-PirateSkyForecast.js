@@ -1,6 +1,6 @@
 /*********************************
 
-  Magic Mirror Module:
+  MagicMirror Module:
   MMM-PirateSkyForecast
   https://github.com/b-reich/MMM-PirateSkyForecast
 

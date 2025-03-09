@@ -2,6 +2,12 @@
   "name": "mmm-pirateskyforecast",
   "version": "1.0.0",
   "description": "MagicMirror² module that gets weather forecast data from Pirate Sky.",
+  "keywords": [
+    "MagicMirror",
+    "PirateSky",
+    "weather",
+    "forecast"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/b-reich/MMM-PirateSkyForecast.git"
