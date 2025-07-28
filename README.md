@@ -13,7 +13,7 @@ This module is a fork of the [MMM-DarkSkyWeather](https://github.com/jclarke0000
 ## Installation
 
 1. Navigate into your MagicMirror `modules` folder and execute
-  `git clone git clone https://github.com/b-reich/MMM-PirateSkyForecast`.
+  `git clone https://github.com/b-reich/MMM-PirateSkyForecast`.
 2. Enter the new `MMM-PirateSkyForecast` directory and execute `npm install`.
 
 ## Configuration
